@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 
 namespace Soccer.Models.LeagueModel
 {
+    public class DataList
+    {
+        public List<League> listLeagueData { get; set; }
+    }
     public class League
     {
         public string league { get; set; }
@@ -13,16 +17,16 @@ namespace Soccer.Models.LeagueModel
         public string home_team { get; set; }
         public string away_team { get; set; }
         public string result { get; set; }
-        public int? h_final { get; set; }
-        public int? a_final { get; set; }
-        public int? h_half { get; set; }
-        public int? a_half { get; set; }
-        public int? h1h { get; set; }
-        public int? a1h { get; set; }
-        public int? h2h { get; set; }
-        public int? a2h { get; set; }
+        public string h_final { get; set; }
+        public string a_final { get; set; }
+        public string h_half { get; set; }
+        public string a_half { get; set; }
+        public string H1H { get; set; }
+        public string A1H { get; set; }
+        public string H2H { get; set; }
+        public string A2H { get; set; }
         public League(string league,int teams_no, string date, string home_team, string away_team, string result,
-                      int h_final, int a_final, int h_half, int a_half, int h1h, int a1h, int h2h, int a2h)
+                      string h_final, string a_final, string h_half, string a_half, string H1H, string A1H, string H2H, string A2H)
         {
             this.league = league;
             this.teams_no = teams_no;
@@ -34,15 +38,15 @@ namespace Soccer.Models.LeagueModel
             this.a_final = a_final;
             this.h_half = h_half;
             this.a_half = a_half;
-            this.h1h = h1h;
-            this.a1h = a1h;
-            this.h2h = h2h;
-            this.a2h = a2h;
+            this.H1H = H1H;
+            this.A1H = A1H;
+            this.H2H = H2H;
+            this.A2H = A2H;
         }
-        public League()
-        {
-        }
+        public League(){}
+
     }
+
 }
 //Los datos son:
 //- Columna A: "league", nombre de la liga en la que se jugó el partido
