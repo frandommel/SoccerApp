@@ -12,22 +12,53 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Soccer</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </nav>
     </header>
+
+    <section class="categorias mt-5 text-center">
+        <h1 class="display-4">Datos-Ligas Europeas(2016-2017)</h1>
+        <p class="mt-2">Datos mas relevantes que se van a mostrar por columna</p>
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-6 col-md-3 text-center categoria">
+                    <h3>Liga</h3>
+                    <p>Nombre de la liga en la que se jugó el partido</p>
+                </div>
+                <div class="col-6 col-md-3 text-center categoria">
+                    <h3>Cantidad</h3>
+                    <p>La cantidad de equipos que participaban de esa liga</p>
+                </div>
+                <div class="col-6 col-md-3 text-center categoria">
+                    <h3>Fecha</h3>
+                    <p>Fecha en la que se jugó el partido </p>
+                </div>
+                <div class="col-6 col-md-3 text-center categoria">
+                    <h3>Equipo Local</h3>
+                    <p>Nombre del equipo local.</p>
+                </div>
+                <div class="col-6 col-md-3 text-center categoria">
+                    <h3>Equipo Visitante</h3>
+                    <p>Nombre del equipo Visitante.</p>
+                </div>
+                <div class="col-6 col-md-3 text-center categoria">
+                    <h3>Resultado</h3>
+                    <p>Resultado del partido</p>
+                </div>
+                <div class="col-6 col-md-3 text-center categoria">
+                    <h3>H-Final</h3>
+                    <p>Cuántos goles tuvo el equipo local al final del partido.</p>
+                </div>
+                <div class="col-6 col-md-3 text-center categoria">
+                    <h3>A-Final</h3>
+                    <p>Cuántos goles tuvo el equipo visitante al final del partido.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
@@ -35,8 +66,10 @@
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2020 - Soccer - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <span style="margin-left:40rem;" >Para Una Informacion Mas completa y detallada presione <a href="https://www.kaggle.com/frankpac/soccerdata" target="_blank">Aqui..</a></span>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
