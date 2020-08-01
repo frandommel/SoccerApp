@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Presentation;
-using Soccer.Models.LeagueModel;
+﻿using Soccer.Models.LeagueModel;
 using System;
 using System.Collections.Generic;
 using System.Data;

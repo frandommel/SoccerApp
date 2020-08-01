@@ -79,7 +79,6 @@
     }
 </table>
 
-@*CÓDIGO PARA EL PAGINADOR DE REGISTROS*@
 @if (Model.Resultado.Count() > 0)
 {
     <span>
@@ -106,25 +105,25 @@ else
     @Html.ActionLink("Anterior", "Index", new
     {
         pagina = Model.PaginaActual - 1,
-                                                buscar = Model.BusquedaActual
+        buscar = Model.BusquedaActual
     },
-                                          new { @class = "btn btn-sm btn-default" })
+       new { @class = "btn btn-sm btn-default" })
 }
 else
 {
     @Html.ActionLink("<<", "Index", new
     {
         pagina = 1,
-                                          buscar = Model.BusquedaActual
+        buscar = Model.BusquedaActual
     },
-                                    new { @class = "btn btn-sm btn-default disabled" })
+    new { @class = "btn btn-sm btn-default disabled" })
     <span></span>
     @Html.ActionLink("Anterior", "Index", new
     {
         pagina = 1,
-                                                buscar = Model.BusquedaActual
+        buscar = Model.BusquedaActual
     },
-                                          new { @class = "btn btn-sm btn-default disabled" })
+     new { @class = "btn btn-sm btn-default disabled" })
 }
 
 <span></span>
@@ -134,30 +133,30 @@ else
     @Html.ActionLink("Siguiente", "Index", new
     {
         pagina = Model.PaginaActual + 1,
-                                                 buscar = Model.BusquedaActual
+        buscar = Model.BusquedaActual
     },
-                                           new { @class = "btn btn-sm btn-default" })
+        new { @class = "btn btn-sm btn-default" })
     <span></span>
     @Html.ActionLink(">>", "Index", new
     {
         pagina = Model.TotalPaginas,
-                                          buscar = Model.BusquedaActual
+        buscar = Model.BusquedaActual
     },
-                                    new { @class = "btn btn-sm btn-default" })
+       new { @class = "btn btn-sm btn-default" })
 }
 else
 {
     @Html.ActionLink("Siguiente", "Index", new
     {
         pagina = Model.TotalPaginas - 1,
-                                                 buscar = Model.BusquedaActual
+        buscar = Model.BusquedaActual
     },
-                                           new { @class = "btn btn-sm btn-default disabled" })
+        new { @class = "btn btn-sm btn-default disabled" })
     <span></span>
     @Html.ActionLink(">>", "Index", new
     {
         pagina = Model.TotalPaginas,
-                                          buscar = Model.BusquedaActual
+        buscar = Model.BusquedaActual
     },
-                                    new { @class = "btn btn-sm btn-default disabled" })
+        new { @class = "btn btn-sm btn-default disabled" })
 }

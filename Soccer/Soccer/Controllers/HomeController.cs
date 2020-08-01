@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using DocumentFormat.OpenXml.InkML;
-using Newtonsoft.Json.Linq;
 using Soccer.Models.Paginador;
 using System;
 
@@ -29,6 +27,7 @@ namespace Soccer.Controllers
             int registroPagina = 60;
             DataList listDataModel = new DataList{ listLeagueData = new List<League>() };
             listDataModel.listLeagueData = getData(listLeague);   //get data from json a build de model into DataList class
+
             //logica para realizar la paginacion
             totalRegistros = listDataModel.listLeagueData.Count;
             var totalPaginas = (int)Math.Ceiling((double)totalRegistros / registroPagina);
@@ -36,7 +35,7 @@ namespace Soccer.Controllers
             {
                     for (int i = 0; i < totalRegistros; i++)
                     {
-                         string buscado = listDataModel.listLeagueData[i].home_team.ToLower();
+                    string buscado = listDataModel.listLeagueData[i].home_team.ToLower();
                         if (buscado.Contains(buscar.Trim().ToLower()))
                         {
                             listLeague.Add(listDataModel.listLeagueData[i]);
@@ -71,7 +70,7 @@ namespace Soccer.Controllers
 
         public List<League> getData(List<League> listLeague)
         {
-            string fileJson = System.IO.File.ReadAllText(@"C:\Users\Francisco\source\repos\SoccerApp\Soccer\Soccer\Content\data.json");
+            string fileJson = System.IO.File.ReadAllText("Content/data.json");
             DataSet ds = (DataSet)JsonConvert.DeserializeObject(fileJson, typeof(DataSet));
             return ModelBuilder.ConvertFromDataTable<League>(ds.Tables[0]);
         }
