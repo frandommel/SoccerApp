@@ -68,7 +68,7 @@ namespace Soccer.Controllers
                 }
 
             }
-
+            //Clase Paginador, para enviar informacion a la vista.
             paginadorLeague = new Paginador<League>()
             {
                 RegistroPorPagina = registroPagina,
@@ -87,7 +87,7 @@ namespace Soccer.Controllers
         {
             string fileJson = System.IO.File.ReadAllText("Content/data.json");
             DataSet ds = (DataSet)JsonConvert.DeserializeObject(fileJson, typeof(DataSet));
-            return ModelBuilder.ConvertFromDataTable<League>(ds.Tables[0]);
+            return ModelBuilder.ConvertFromDataTable<League>(ds.Tables[0]);  //Metodo statico que construye una list a partir de una tabla
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
