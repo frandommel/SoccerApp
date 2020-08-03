@@ -13,5 +13,6 @@ namespace Soccer.Models.Paginador
         public int TotalPaginas { get; set; }
         public IEnumerable<T> Resultado { get; set; }
         public string BusquedaActual { get; set; }
+        public bool Buscado { get; set; }
     }
 }

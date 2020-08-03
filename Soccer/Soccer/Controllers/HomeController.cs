@@ -25,44 +25,59 @@ namespace Soccer.Controllers
         {
             int totalRegistros = 0;
             int registroPagina = 60;
+            bool encontrado = false;
             DataList listDataModel = new DataList{ listLeagueData = new List<League>() };
             listDataModel.listLeagueData = getData(listLeague);   //get data from json a build de model into DataList class
 
             //logica para realizar la paginacion
+
             totalRegistros = listDataModel.listLeagueData.Count;
             var totalPaginas = (int)Math.Ceiling((double)totalRegistros / registroPagina);
             if (!string.IsNullOrEmpty(buscar))
             {
                     for (int i = 0; i < totalRegistros; i++)
                     {
-                    string buscado = listDataModel.listLeagueData[i].home_team.ToLower();
-                        if (buscado.Contains(buscar.Trim().ToLower()))
+                        string buscadoHome = listDataModel.listLeagueData[i].home_team.ToLower();
+                        string buscadoAway = listDataModel.listLeagueData[i].away_team.ToLower();
+                        if (buscadoHome.Contains(buscar.Trim().ToLower()))
+                            {
+                                listLeague.Add(listDataModel.listLeagueData[i]);
+                            }
+                        if (buscadoAway.Contains(buscar.Trim().ToLower()))
                         {
                             listLeague.Add(listDataModel.listLeagueData[i]);
                         }
-                         registroPagina = listLeague.Count;
                     }
+                encontrado = true;
+                totalRegistros = listLeague.Count;
+                registroPagina = totalRegistros;
             } else {
-             
+              
                 if (pagina - 1 == 0)
                 {
                     for (int i = 0; i < registroPagina; i++)
                     {
                         listLeague.Add(listDataModel.listLeagueData[i]);
                     }
-                }
-                for (int i = 0; i < (pagina - 1) * registroPagina; i++)
+                }else
                 {
-                    listLeague.Add(listDataModel.listLeagueData[i]);
+                    for (int i = ((pagina) *registroPagina)-(registroPagina); i < (pagina) * registroPagina; i++)
+                    {
+                        listLeague.Add(listDataModel.listLeagueData[i]);
+                    }
                 }
+
             }
+
             paginadorLeague = new Paginador<League>()
             {
                 RegistroPorPagina = registroPagina,
                 TotalRegistros = totalRegistros,
                 TotalPaginas = totalPaginas,
                 PaginaActual = pagina,
-                Resultado = listLeague         
+                Resultado = listLeague,
+                Buscado = encontrado,
+                BusquedaActual = buscar
             };
 
             return View(paginadorLeague);
