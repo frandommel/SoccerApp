@@ -27,7 +27,7 @@ namespace Soccer.Controllers
             int registroPagina = 60;
             bool encontrado = false;
             DataList listDataModel = new DataList{ listLeagueData = new List<League>() };
-            listDataModel.listLeagueData = getData(listLeague);   //get data from json a build de model into DataList class
+            listDataModel.listLeagueData = getData(listLeague);   //Metodo que me devuelve una lista a partir de un dataTable
 
             //logica para realizar la paginacion
 
@@ -75,14 +75,14 @@ namespace Soccer.Controllers
                 TotalRegistros = totalRegistros,
                 TotalPaginas = totalPaginas,
                 PaginaActual = pagina,
-                Resultado = listLeague,
-                Buscado = encontrado,
-                BusquedaActual = buscar
+                Resultado = listLeague, 
+                Buscado = encontrado, 
+                BusquedaActual = buscar  //dato que me sirve en la vista para agregarle estilos a la tabla
             };
 
             return View(paginadorLeague);
         }
-
+        //paso el contenido de un json a una dataSet para armar la lista
         public List<League> getData(List<League> listLeague)
         {
             string fileJson = System.IO.File.ReadAllText("Content/data.json");
